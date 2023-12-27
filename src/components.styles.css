@@ -1,0 +1,7 @@
+.btn {
+  @apply border py-3 px-6 rounded-lg border-turquoise-blue-700 text-turquoise-blue-700;
+}
+
+.btn-primary {
+  @apply py-3 px-6 rounded-lg text-white bg-turquoise-blue-700 hover:bg-turquoise-blue-800 transition duration-300;
+}

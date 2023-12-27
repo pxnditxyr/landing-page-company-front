@@ -2,6 +2,7 @@ import { Navigate, Route, Routes } from 'react-router-dom'
 import { SigninPage, SignupPage } from '../pages'
 
 export const AuthRoutes = () => {
+
   return (
     <div>
       <Routes>
