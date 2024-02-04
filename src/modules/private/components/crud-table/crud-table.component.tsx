@@ -5,13 +5,13 @@ import { EditIcon, EyeIcon, TrashIcon } from '../../../../icons/table'
 
 interface IData {
   id: number | string
-  [ key : string ] : string | number | boolean | Date | null | undefined
+  [ key : string ] : any
 }
 
 interface IColumn {
   title: string
   key: string
-  type?: 'text' | 'date' | 'boolean' | 'datetime'
+  type?: 'text' | 'date' | 'boolean' | 'datetime' | 'image'
 }
 
 interface IProps {
@@ -135,6 +135,15 @@ export const CrudTable = ( {
             {
               ( column.type === undefined ) && ( <span> { String( row[ column.key ] ) } </span> )
             }
+            {
+              ( column.type === 'image' ) && (
+                <img
+                  src={ String( row[ column.key ] ) }
+                  alt={ String( row[ column.key ] ) }
+                  className="w-12 h-12 object-cover rounded-full"
+                />
+              )
+            }
           </div>
         )
     }
@@ -156,7 +165,7 @@ export const CrudTable = ( {
         { data.map( ( row ) => (
           <tr
             key={ row.id }
-            className="border-b border-violet-900 hover:bg-violet-500 hover:text-violet-800 text-[#092635] text-base hover:text-white transition-all duration-300"
+            className="border-b border-violet-900 hover:bg-violet-500 text-[#092635] text-base hover:text-white transition-all duration-300"
           >
             { columns.map( ( column ) => (
               <td

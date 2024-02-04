@@ -1,8 +1,9 @@
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import { CrudTable } from '../../components/crud-table/crud-table.component'
+import { CrudTable } from '../../components'
 import { useAuthStore, useUsersStore } from '../../../../stores'
+import { genderFormatter } from '../../../../helpers'
 import Swal from 'sweetalert2'
 
 export const ListUsersPage = () => {
@@ -81,12 +82,12 @@ export const ListUsersPage = () => {
       </div>
       <div className="overflow-x-auto p-4 grid">
         <CrudTable
-          data={[
-            ...users.map( user => ( {
+          data={ [
+            ...users.map( user => ({
               ...user,
-              status: true
-            } ) )
-          ]}
+              gender: genderFormatter[ user.gender ],
+            }))
+          ] }
           columns={ [
             {
               title: 'Nombre',

@@ -1,18 +1,11 @@
-import { useNavigate, useParams } from 'react-router-dom'
-import { useAuthStore, useUsersStore } from '../../../../stores'
 import { useEffect } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
+
+import { useAuthStore, useUsersStore } from '../../../../stores'
 import { LoadingPage } from '../../../../components'
+import { genderFormatter } from '../../../../helpers'
+
 import Swal from 'sweetalert2'
-
-interface IGanderFormatter {
-  [ key : string ] : string
-}
-
-const ganderFormatter : IGanderFormatter = {
-  'Male': 'Masculino',
-  'Female': 'Femenino',
-  'Other': 'Otro'
-}
 
 export const ViewUserPage = () => {
 
@@ -109,7 +102,7 @@ export const ViewUserPage = () => {
               <span
                 className="text-xl text-orange-300 font-bold"
               > Genero: </span>
-              { ganderFormatter[ user.gender ] }
+              { genderFormatter[ user.gender ] }
             </div>
             <div className="flex gap-2 text-lg font-bold text-white">
               <span
