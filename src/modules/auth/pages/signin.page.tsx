@@ -40,13 +40,11 @@ export const SigninPage = () => {
           type="text"
           name="email"
           placeholder="Correo electrónico"
-          className="w-full"
         />
         <FormField
           type="password"
           name="password"
           placeholder="Contraseña"
-          className="w-full"
         />
         <button className="btn btn-primary"> Iniciar Sesión </button>
       </form>

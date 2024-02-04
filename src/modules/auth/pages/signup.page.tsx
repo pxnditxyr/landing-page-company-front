@@ -57,7 +57,7 @@ export const SignupPage = () => {
         onSubmit={ onSubmit }
         className="flex flex-col gap-8 w-full justify-center items-center"
       >
-        <div className="flex flex-col gap-8 md:flex-row md:gap-4">
+        <div className="flex flex-col gap-8 md:flex-row md:gap-4 md:w-full">
           <FormField
             type="text"
             name="personName"
@@ -69,12 +69,13 @@ export const SignupPage = () => {
             placeholder="Apellidos"
           />
         </div>
-        <div className="flex flex-col gap-8 md:flex-row md:gap-4">
+        <div className="flex flex-col gap-8 md:flex-row md:gap-4 md:w-full">
           <FormField
             type="date"
             name="birthdate"
             value="2000-01-01"
             placeholder="Fecha de nacimiento"
+            className="md:w-full"
           />
           <select
             className="w-60 px-3 py-2 rounded-lg shadow-2xl bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-turquoise-blue-500"
@@ -101,7 +102,6 @@ export const SignupPage = () => {
           type="text"
           name="email"
           placeholder="Correo electrónico"
-          className="md:w-full"
         />
         <div className="flex flex-col gap-8 md:flex-row md:gap-4">
           <FormField

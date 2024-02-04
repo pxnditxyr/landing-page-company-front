@@ -3,7 +3,7 @@ import { IServiceException } from '../../interfaces'
 import { IUser } from '../../interfaces/modules.interface'
 import { formatApiErrors } from '../../utils'
 
-export interface ICreateUser {
+export interface ICreateUserDto {
   name: string
   lastname: string
   birthdate: string
@@ -43,7 +43,7 @@ export class UsersService {
     }
   }
 
-  static update = async ( id : string, updateDto : ICreateUser ) : Promise<IUser | IServiceException> => {
+  static update = async ( id : string, updateDto : ICreateUserDto ) : Promise<IUser | IServiceException> => {
     try {
       const { data } = await api.patch( `/users/${ id }`, updateDto )
       return data

@@ -1,0 +1,5 @@
+export * from './burger.icon'
+export * from './x.icon'
+export * from './table'
+export * from './back.icon'
+export * from './company-logo.icon'

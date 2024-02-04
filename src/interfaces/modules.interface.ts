@@ -7,7 +7,6 @@ export interface IUser {
   gender: string
   phone: string
   info: string
-  password: string
   role: string
   createdAt: Date
   updatedAt: Date

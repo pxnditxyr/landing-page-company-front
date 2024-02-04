@@ -17,6 +17,11 @@ export const AppRouter = () => {
               <Route path="/auth/*" element={ <AuthRoutes /> } />
 
               <Route path="/users/*" element={ <Navigate to="/auth/signin" /> } />
+              <Route path="/my-company/*" element={ <Navigate to="/auth/signin" /> } />
+              <Route path="/contact-us/*" element={ <Navigate to="/auth/signin" /> } />
+              <Route path="/projects/*" element={ <Navigate to="/auth/signin" /> } />
+              <Route path="/teams/*" element={ <Navigate to="/auth/signin" /> } />
+              <Route path="/projects-teams/*" element={ <Navigate to="/auth/signin" /> } />
             </>
           ) : (
             <Route path="/*" element={ <PrivateRoutes /> } />
