@@ -93,7 +93,7 @@ export const UpdateProjectPage = () => {
             <input
               id="imageUrl"
               name="imageUrl"
-              type="url"
+              type="text"
               className={ inputClass }
               placeholder="Imagen"
               defaultValue={ project.imageUrl }

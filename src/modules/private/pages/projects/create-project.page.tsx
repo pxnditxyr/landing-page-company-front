@@ -77,7 +77,7 @@ export const CreateProjectPage = () => {
             <input
               id="imageUrl"
               name="imageUrl"
-              type="url"
+              type="text"
               className={ inputClass }
               placeholder="Imagen"
             />

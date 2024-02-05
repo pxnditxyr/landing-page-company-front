@@ -16,7 +16,6 @@ interface IProjectsState {
 
 const projectsStore : StateCreator<IProjectsState> = ( set, get ) => ({
   projects: [],
-  project: undefined,
   isLoading: false,
   error: undefined,
   findAll: async () => {

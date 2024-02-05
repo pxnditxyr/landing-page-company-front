@@ -16,7 +16,6 @@ interface IUsersState {
 
 const usersStore : StateCreator<IUsersState> = ( set, get ) => ({
   users: [],
-  user: undefined,
   isLoading: false,
   error: undefined,
   findAll: async () => {

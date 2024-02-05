@@ -1,7 +1,7 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
 import {
   CreateProjectPage, CreateUserPage, ListProjectsPage, ViewProjectPage, 
-  ListUsersPage, UpdateProjectPage, UpdateUserPage, ViewUserPage,
+  ListUsersPage, UpdateProjectPage, UpdateUserPage, ViewUserPage, ViewCompanyPage, UpdateCompanyPage, CreateCompanyPage,
 } from '../pages'
 import { PrivateLayout } from '../layout'
 
@@ -11,7 +11,13 @@ export const PrivateRoutes = () => {
       <PrivateLayout>
         <Routes>
           <Route path="/" element={ <Navigate to="/my-company" /> } />
-          <Route path="my-company/*" element={ <h1> Companies </h1> } />
+          <Route path="my-company/*" element={
+            <Routes>
+              <Route path="/" element={ <ViewCompanyPage /> } />
+              <Route path="update" element={ <UpdateCompanyPage /> } />
+              <Route path="create" element={ <CreateCompanyPage /> } />
+            </Routes>
+          } />
           <Route path="users/*" element={ 
             <Routes>
               <Route path="/" element={ <ListUsersPage /> } />
