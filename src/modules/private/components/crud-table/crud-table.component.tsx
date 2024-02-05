@@ -162,21 +162,33 @@ export const CrudTable = ( {
         </tr>
       </thead>
       <tbody>
-        { data.map( ( row ) => (
-          <tr
-            key={ row.id }
-            className="border-b border-violet-900 hover:bg-violet-500 text-[#092635] text-base hover:text-white transition-all duration-300"
-          >
-            { columns.map( ( column ) => (
-              <td
-                key={ column.key }
-                className="p-4 height-12"
+
+        {
+          ( data.length > 0 ) ? (
+            data.map( ( row ) => (
+              <tr
+                key={ row.id }
+                className="border-b border-violet-900 hover:bg-violet-500 text-[#092635] text-base hover:text-white transition-all duration-300"
               >
-                { renderCell( row, column ) }
-              </td>
-            ) ) }
-          </tr>
-        ) ) }
+                { columns.map( ( column ) => (
+                  <td
+                    key={ column.key }
+                    className="p-4 height-12"
+                  >
+                    { renderCell( row, column ) }
+                  </td>
+                ) ) }
+              </tr>
+            ) )
+          ) : (
+            <tr>
+              <td
+                colSpan={ columns.length }
+                className="p-4 text-center text-gray-800 text-lg"
+              > No hay datos para mostrar </td>
+            </tr>
+          )
+        }
       </tbody>
     </table>
   )

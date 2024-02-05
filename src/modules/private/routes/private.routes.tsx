@@ -1,7 +1,9 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
 import {
   CreateProjectPage, CreateUserPage, ListProjectsPage, ViewProjectPage, 
-  ListUsersPage, UpdateProjectPage, UpdateUserPage, ViewUserPage, ViewCompanyPage, UpdateCompanyPage, CreateCompanyPage,
+  ListUsersPage, UpdateProjectPage, UpdateUserPage, ViewUserPage,
+  ViewCompanyPage, UpdateCompanyPage, CreateCompanyPage,
+  ListTeamsPage, CreateTeamPage, ViewTeamPage, UpdateTeamPage,
 } from '../pages'
 import { PrivateLayout } from '../layout'
 
@@ -38,7 +40,14 @@ export const PrivateRoutes = () => {
             </Routes>
           } />
 
-          <Route path="teams/*" element={ <h1> Teams </h1> } />
+          <Route path="teams/*" element={ 
+            <Routes>
+              <Route path="/" element={ <ListTeamsPage /> } />
+              <Route path="/:id" element={ <ViewTeamPage /> } />
+              <Route path="create" element={ <CreateTeamPage /> } />
+              <Route path="update/:id" element={ <UpdateTeamPage /> } />
+            </Routes>
+          } />
           <Route path="projects-teams/*" element={ <h1> Projects Teams </h1> } />
           <Route path="team-members/*" element={ <h1> Team Members </h1> } />
 
