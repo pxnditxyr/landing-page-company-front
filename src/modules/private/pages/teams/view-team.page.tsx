@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from 'react-router-dom'
 import { useTeamsStore } from '../../../../stores'
 import { useEffect } from 'react'
-import { LoadingPage } from '../../../../components'
+import { DeleteButton, EditButton, LoadingPage } from '../../../../components'
 import Swal from 'sweetalert2'
 
 export const ViewTeamPage = () => {
@@ -69,15 +69,11 @@ export const ViewTeamPage = () => {
         className="text-4xl font-bold text-[#092635] backdrop-blur-sm bg-white/30 rounded-lg p-2"
       > Ver Equipo </h1>
       <div className="overflow-x-auto p-4">
-        <article className="w-full flex flex-row gap-2 p-2 text-[#092635] bg-gray-800/50 backdrop-blur-sm rounded-lg text-lg font-bold sm:p-8">
-          <section className="flex flex-col justify-between">
-            <section className="w-full flex flex-col items-start gap-2">
-              <h2
-                className="text-3xl text-emerald-400 font-black"
-              > { team.name } </h2>
-              <h2
-                className="text-xl text-emerald-200 font-bold"
-              > Detalles: { team.details } </h2>
+        <article className="w-full flex flex-col-reverse md:flex-row gap-2 p-6 text-[#092635] bg-gray-800/50 backdrop-blur-sm rounded-lg text-lg font-bold sm:p-8">
+          <section className="flex flex-col justify-between p-2 gap-4 md:gap-0">
+            <section className="w-full p-6 flex flex-col items-center gap-2 lg:px-0">
+              <h2 className="text-3xl text-emerald-400 font-black"> { team.name } </h2>
+              <h2 className="text-xl text-emerald-200 font-bold"> { team.details } </h2>
             </section>
             <section className="w-full flex flex-col">
               <div className="flex flex-col gap-2 text-lg font-bold text-white">
@@ -93,18 +89,12 @@ export const ViewTeamPage = () => {
                 { new Date( team.updatedAt ).toLocaleString() }
               </div>
             </section>
-            <section className="w-full flex gap-4">
-              <button
-                onClick={ () => navigate( '/teams/update/' + encodedId ) }
-                className="px-4 py-3 bg-blue-500 text-white font-bold rounded-lg hover:shadow-lg transition-all duration-300 hover:transform hover:scale-105"
-              > Actualizar </button>
-              <button
-                onClick={ () => handleRemoveTeam( team.id ) }
-                className="px-4 py-3 bg-red-500 text-white font-bold rounded-lg hover:shadow-lg transition-all duration-300 hover:transform hover:scale-105"
-              > Borrar </button>
+            <section className="w-full flex gap-4 justify-center items-center py-6">
+              <EditButton onClick={ () => navigate( '/teams/update/' + encodedId ) } />
+              <DeleteButton onClick={ () => handleRemoveTeam( team.id ) } />
             </section>
           </section>
-          <section className="w-1/2 flex flex-col items-center gap-4 justify-center">
+          <section className="w-full md:w-1/2 flex flex-col items-center gap-4 justify-center">
             <img
               src={ team.imageUrl }
               alt={ team.name }

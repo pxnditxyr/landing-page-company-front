@@ -66,7 +66,7 @@ export const UpdateTeamPage = () => {
 
   return (
     <div className="w-full flex flex-col items-center gap-8 p-2 mb-6">
-      <div className="overflow-x-auto gap-12 flex flex-col justify-center items-center backdrop-blur-sm bg-white/30 rounded-lg px-6 py-8 w-full sm:max-w-xl sm:px-16 sm:py-12">
+      <div className="overflow-x-auto gap-12 flex flex-col justify-center items-center backdrop-blur-sm bg-white/[0.1] rounded-lg px-6 py-8 w-full sm:max-w-xl sm:px-16 sm:py-12">
         <h1 className="text-4xl font-bold text-[#092635] text-center"> Actualizar Equipo </h1>
         <form
           className="w-full flex flex-col gap-8 items-center"

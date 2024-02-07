@@ -61,10 +61,16 @@ export const CrudTable = ( {
                   <section className="action-section">
                     <button
                       onClick={ () => actions?.viewAction?.( String( row.id ) ) }
-                      className="hoverable-button "
+                      className="hoverable-button"
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center'
+                      }}
                     >
                       <EyeIcon
-                        className="min-w-4 min-h-4 max-w-6 max-h-6 object-contain opacity-80"
+                        width={ 35 }
+                        height={ 35 }
                       />
                     </button>
                     <span
@@ -79,12 +85,18 @@ export const CrudTable = ( {
                     <button
                       onClick={ () => actions?.editAction?.( String( row.id ) ) }
                       className="hoverable-button"
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center'
+                      }}
                     >
-                      <EditIcon className="min-w-4 min-h-4 max-w-6 max-h-6 object-contain opacity-80" />
+                      <EditIcon
+                        width={ 35 }
+                        height={ 35 }
+                      />
                     </button>
-                    <span
-                      className="hoverable-label"
-                    > Editar </span>
+                    <span className="hoverable-label"> Editar </span>
                   </section>
                 )
               }
@@ -94,8 +106,17 @@ export const CrudTable = ( {
                     <button
                       onClick={ () => actions?.deleteAction?.( String( row.id ) ) }
                       className="hoverable-button"
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        position: 'relative'
+                      }}
                     >
-                      <TrashIcon className="min-w-4 min-h-4 max-w-6 max-h-6 object-contain opacity-80 hover:text-red-500 transition-all duration-300" />
+                      <TrashIcon
+                        width={ 35 }
+                        height={ 35 }
+                      />
                     </button>
                     <span
                       className="hoverable-label"
@@ -150,7 +171,7 @@ export const CrudTable = ( {
   }, [] )
 
   return (
-    <table className="w-full text-sm ext-left rtl:text-right text-gray-200 shadow-md rounded-md overflow-hidden backdrop-blur-sm bg-white/30">
+    <table className="w-full text-sm ext-left rtl:text-right text-gray-200 shadow-md rounded-md overflow-hidden backdrop-blur-sm bg-white/50">
       <thead className="bg-violet-800 text-white text-base">
         <tr className="border-b border-violet-900">
           { columns.map( ( column ) => (
@@ -168,7 +189,7 @@ export const CrudTable = ( {
             data.map( ( row ) => (
               <tr
                 key={ row.id }
-                className="border-b border-violet-900 hover:bg-violet-500 text-[#092635] text-base hover:text-white transition-all duration-300"
+                className="border-b border-violet-900 hover:bg-red-500/60 text-[#092635] text-base hover:text-white transition-all duration-300"
               >
                 { columns.map( ( column ) => (
                   <td

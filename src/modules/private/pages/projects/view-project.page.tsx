@@ -1,8 +1,14 @@
 import { useNavigate, useParams } from 'react-router-dom'
 import { useProjectsStore } from '../../../../stores'
 import { useEffect } from 'react'
-import { LoadingPage } from '../../../../components'
+import { DeleteButton, EditButton, LoadingPage } from '../../../../components'
 import Swal from 'sweetalert2'
+
+const containerClassName = 'flex flex-col justify-center md:justify-start md:gap-2'
+const subtitleClassName = 'text-lg text-orange-300 font-bold md:text-xl'
+const paragraphClassName = 'text-base text-white md:text-lg'
+const articleClassName = 'w-full flex flex-col-reverse p-4 text-[#092635] bg-gray-800/50 backdrop-blur-sm rounded-lg text-lg font-bold sm:p-2 md:flex-row overflow-x-auto md:items-center md:justify-center md:w-auto'
+const sectionClassName = 'w-full flex gap-2 flex-col xl:flex-row xl:gap-4 px-6 lg:px-2'
 
 export const ViewProjectPage = () => {
 
@@ -68,51 +74,35 @@ export const ViewProjectPage = () => {
       <h1
         className="text-4xl font-bold text-[#092635] backdrop-blur-sm bg-white/30 rounded-lg p-2"
       > Ver Proyecto </h1>
-      <div className="overflow-x-auto p-4">
-        <article className="w-full flex flex-row gap-2 p-2 text-[#092635] bg-gray-800/50 backdrop-blur-sm rounded-lg text-lg font-bold sm:p-8">
+      <div className="overflow-x-auto p-4 w-full md:w-auto">
+        <article className={ articleClassName }>
           <section className="flex flex-col justify-between">
-            <section className="w-full flex flex-col items-start gap-2">
-              <h2
-                className="text-3xl text-emerald-400 font-black"
-              > { project.name } </h2>
-              <h2
-                className="text-xl text-emerald-200 font-bold"
-              > Detalles: { project.details } </h2>
+            <section className="w-full p-6 flex flex-col items-center gap-2 lg:px-0">
+              <h2 className="text-3xl text-emerald-400 font-black"> { project.name } </h2>
+              <h2 className="text-xl text-emerald-200 font-bold"> { project.details } </h2>
             </section>
-            <section className="w-full flex flex-col">
-              <div className="flex gap-2 text-lg font-bold text-white">
-                <span
-                  className="text-xl text-orange-300 font-bold"
-                > Creado En: </span>
-                { new Date( project.createdAt ).toLocaleString() }
+            <section className={ sectionClassName }>
+              <div className={ containerClassName }>
+                <span className={ subtitleClassName }> Creado En: </span>
+                <p className={ paragraphClassName }> { new Date( project.createdAt ).toLocaleString() } </p>
               </div>
-              <div className="flex gap-4 text-lg font-bold text-white">
-                <span
-                  className="text-xl text-orange-300 font-bold"
-                > Actualizado En: </span>
-                { new Date( project.updatedAt ).toLocaleString() }
+              <div className={ containerClassName }>
+                <span className={ subtitleClassName }> Actualizado En: </span>
+                <p className={ paragraphClassName }> { new Date( project.updatedAt ).toLocaleString() } </p>
               </div>
             </section>
-            <section className="w-full flex flex-col">
-              <div className="flex flex-col text-lg font-bold text-white">
-                <span
-                  className="text-xl text-orange-300 font-bold"
-                > Informacion Adicional </span>
-                <p> { project.info } </p>
+            <section className={ sectionClassName }>
+              <div className={ containerClassName }>
+                <span className={ subtitleClassName }> Informacion Adicional </span>
+                <p className={ paragraphClassName }> { project.info } </p>
               </div>
             </section>
-            <section className="w-full flex gap-4">
-              <button
-                onClick={ () => navigate( '/projects/update/' + encodedId ) }
-                className="px-4 py-3 bg-blue-500 text-white font-bold rounded-lg hover:shadow-lg transition-all duration-300 hover:transform hover:scale-105"
-              > Actualizar </button>
-              <button
-                onClick={ () => handleRemoveProject( project.id ) }
-                className="px-4 py-3 bg-red-500 text-white font-bold rounded-lg hover:shadow-lg transition-all duration-300 hover:transform hover:scale-105"
-              > Borrar </button>
+            <section className="w-full flex gap-4 justify-center items-center py-6">
+              <EditButton onClick={ () => navigate( '/projects/update/' + encodedId ) } />
+              <DeleteButton onClick={ () => handleRemoveProject( project.id ) } />
             </section>
           </section>
-          <section className="w-1/2 flex flex-col items-center gap-4 justify-center">
+          <section className="w-auto flex p-4 items-center justify-center md:w-1/2 md:px-2">
             <img
               src={ project.imageUrl }
               alt={ project.name }

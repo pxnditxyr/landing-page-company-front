@@ -19,39 +19,39 @@ export const PrivateLayout = ( { children } : IProps ) => {
         backgroundAttachment: 'fixed'
       }}
     >
-      <Header className="w-full backdrop-blur-xl bg-white/30">
+      <Header className="w-full backdrop-blur-[2.5px] bg-white/[0.04] shadow-[0_4px_30px_rgba(0,0,0,0.1)]">
         <Navbar>
           <NavbarBrand>
             <NavbarItem>
-              <Link to="/my-company" className="font-bold"> My Company </Link>
+              <Link to="/my-company" className="font-bold text-white hover:text-[#35eaca] transition-all duration-300"> My Company </Link>
             </NavbarItem>
           </NavbarBrand>
           <NavbarContent className="justify-center">
             <NavbarItem>
-              <Link to="/users" className="font-bold"> Users </Link>
+              <Link to="/users" className="font-bold text-white hover:text-[#35eaca] transition-all duration-300"> Users </Link>
             </NavbarItem>
             <NavbarItem>
-              <Link to="/projects" className="font-bold"> Projects </Link>
+              <Link to="/projects" className="font-bold text-white hover:text-[#35eaca] transition-all duration-300"> Projects </Link>
             </NavbarItem>
             <NavbarItem>
-              <Link to="/teams" className="font-bold"> Teams </Link>
+              <Link to="/teams" className="font-bold text-white hover:text-[#35eaca] transition-all duration-300"> Teams </Link>
             </NavbarItem>
             <NavbarItem>
-              <Link to="/projects-teams" className="font-bold"> Projects Teams </Link>
+              <Link to="/projects-teams" className="font-bold text-white hover:text-[#35eaca] transition-all duration-300"> Projects Teams </Link>
             </NavbarItem>
             <NavbarItem>
-              <Link to="/team-members" className="font-bold"> Team Members </Link>
+              <Link to="/team-members" className="font-bold text-white hover:text-[#35eaca] transition-all duration-300"> Team Members </Link>
             </NavbarItem>
           </NavbarContent>
           <NavbarContent className="justify-end">
             <NavbarItem>
-              <Link to="/contact-us" className="font-bold"> Contact Us </Link>
+              <Link to="/contact-us" className="font-bold text-white hover:text-[#35eaca] transition-all duration-300"> Contact Us </Link>
             </NavbarItem>
             <NavbarItem>
               <button
                 onClick={ signout }
-                className="font-bold py-4 text-red-700 hover:text-red-500 transition-all duration-300 lg:py-0"
-              > Cerrar Sesion </button>
+                className="w-1/2 text-sm font-semibold py-4 text-rose-600 hover:text-red-500 transition-all duration-300 lg:py-0"
+              > Cerrar sesión </button>
             </NavbarItem>
           </NavbarContent>
         </Navbar>
