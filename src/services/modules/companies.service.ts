@@ -41,9 +41,6 @@ export class CompaniesService {
       const { data } = await api.get( '/companies/first/1' )
       return data
     } catch ( error ) {
-      console.log({
-        error
-      })
       return { error: formatApiErrors( error ) }
     }
   }

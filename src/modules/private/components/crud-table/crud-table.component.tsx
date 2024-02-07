@@ -154,7 +154,7 @@ export const CrudTable = ( {
               ( column.type === 'boolean' ) && ( <span> { row[ column.key ] ? 'Si' : 'No' } </span> )
             }
             {
-              ( column.type === undefined ) && ( <span> { String( row[ column.key ] ) } </span> )
+              ( column.type === undefined ) && ( <span> { row[ column.key ] } </span> )
             }
             {
               ( column.type === 'image' ) && (
@@ -183,7 +183,6 @@ export const CrudTable = ( {
         </tr>
       </thead>
       <tbody>
-
         {
           ( data.length > 0 ) ? (
             data.map( ( row ) => (
@@ -211,6 +210,9 @@ export const CrudTable = ( {
           )
         }
       </tbody>
+      {
+        
+      }
     </table>
   )
 }

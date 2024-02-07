@@ -29,14 +29,16 @@ export const Navbar = ( { children, className = '', style, iconClassName = '' } 
         >
           { children }
         </div>
-        <div className={ `flex p-4 text-[#092635] hover:text-[#10a4ca] transition-all duration-300 ${ isOpenMenu ? 'items-start' : 'items-center' } lg:hidden ${ iconClassName }` }>
+        <div className={ `flex p-4 text-white hover:text-[#35eaca] transition-all duration-300 ${ isOpenMenu ? 'items-start' : 'items-center' } lg:hidden ${ iconClassName }` }>
           <BurgerIcon 
             className={ `w-6 h-6 cursor-pointer ${ !isOpenMenu ? '' : 'hidden' }` }
             onClick={ toggleMenu }
+            strokeWidth={ 3 }
           />
           <XIcon
             className={ `w-6 h-6 cursor-pointer ${ isOpenMenu ? '' : 'hidden' }` }
             onClick={ toggleMenu }
+            strokeWidth={ 3 }
           />
         </div>
       </nav>

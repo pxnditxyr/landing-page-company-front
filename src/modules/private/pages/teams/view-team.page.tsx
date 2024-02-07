@@ -56,6 +56,7 @@ export const ViewTeamPage = () => {
             icon: 'success',
             confirmButtonText: 'Ok'
           })
+          navigate( '/teams' )
         }
     })
   }

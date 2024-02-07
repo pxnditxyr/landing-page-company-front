@@ -4,6 +4,7 @@ import {
   ListUsersPage, UpdateProjectPage, UpdateUserPage, ViewUserPage,
   ViewCompanyPage, UpdateCompanyPage, CreateCompanyPage,
   ListTeamsPage, CreateTeamPage, ViewTeamPage, UpdateTeamPage,
+  ListProjectsTeamsPage, CreateProjectTeamsPage, ViewProjectTeamsPage,
 } from '../pages'
 import { PrivateLayout } from '../layout'
 
@@ -48,7 +49,15 @@ export const PrivateRoutes = () => {
               <Route path="update/:id" element={ <UpdateTeamPage /> } />
             </Routes>
           } />
-          <Route path="projects-teams/*" element={ <h1> Projects Teams </h1> } />
+          <Route path="projects-teams/*" element={ 
+            <Routes>
+              <Route path="/" element={ <ListProjectsTeamsPage /> } />
+              <Route path="/:id" element={ <ViewProjectTeamsPage /> } />
+              <Route path="create" element={ <CreateProjectTeamsPage /> } />
+              <Route path="update/*" element={ <Navigate to="/projects-teams" /> } />
+            </Routes>
+          } />
+
           <Route path="team-members/*" element={ <h1> Team Members </h1> } />
 
           <Route path="auth/*" element={ <Navigate to="/" /> } />

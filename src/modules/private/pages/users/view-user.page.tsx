@@ -75,6 +75,7 @@ export const ViewUserPage = () => {
             icon: 'success',
             confirmButtonText: 'Ok'
           })
+          navigate( '/users' )
         }
     })
   }
