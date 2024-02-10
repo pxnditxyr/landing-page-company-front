@@ -23,16 +23,19 @@ interface IProps {
     edit?: boolean
     view?: boolean
   }
+  selectableRows?: boolean
   actions?: {
     toggleStatusAction?: ( id : string ) => void
     deleteAction?:       ( id : string ) => void
     editAction?:         ( id : string ) => void
     viewAction?:         ( id : string ) => void
+    selectAction?:       ( id : string ) => void
   }
 }
 
 export const CrudTable = ( {
   data, columns,
+  selectableRows = false,
   enabledActions = {
     toggleStatus: false,
     delete: true,
@@ -188,7 +191,8 @@ export const CrudTable = ( {
             data.map( ( row ) => (
               <tr
                 key={ row.id }
-                className="border-b border-violet-900 hover:bg-red-500/60 text-[#092635] text-base hover:text-white transition-all duration-300"
+                className={ `border-b border-violet-900 hover:bg-red-500/60 text-[#092635] text-base hover:text-white transition-all duration-300 ${ selectableRows ? 'cursor-pointer' : '' }` }
+                onClick={ () => actions?.selectAction?.( String( row.id ) ) }
               >
                 { columns.map( ( column ) => (
                   <td

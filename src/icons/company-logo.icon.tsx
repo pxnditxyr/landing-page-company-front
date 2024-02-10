@@ -1,5 +1,10 @@
 export const CompanyLogo = ( props : any ) => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" { ...props }>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 100 100" { ...props }
+    width={ 200 }
+    height={ 200 }
+  >
     <rect width="100%" height="100%" fill="#142F43" rx={ 20 } ry={ 20 } />
     <text
       x={8}

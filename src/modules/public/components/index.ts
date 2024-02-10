@@ -1,1 +1,5 @@
+export * from './about.component'
+export * from './contact-us.component'
+export * from './footer.component'
+export * from './projects.component'
 export * from './public-navbar.component'

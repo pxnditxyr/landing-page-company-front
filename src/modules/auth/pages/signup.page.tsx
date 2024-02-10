@@ -40,7 +40,7 @@ export const SignupPage = () => {
   }
 
   useEffect( () => {
-    if ( authError ) {
+    if ( authError && authError !== 'Unauthorized' ) {
       Swal.fire({
         title: 'Error',
         text: authError,

@@ -62,8 +62,8 @@ export const ViewProjectPage = () => {
             icon: 'success',
             confirmButtonText: 'Ok'
           })
+          navigate( '/projects' )
         }
-        navigate( '/projects' )
     })
   }
 

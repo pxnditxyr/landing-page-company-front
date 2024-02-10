@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import {
   CreateProjectPage, CreateUserPage, ListProjectsPage, ViewProjectPage, 
@@ -5,10 +6,22 @@ import {
   ViewCompanyPage, UpdateCompanyPage, CreateCompanyPage,
   ListTeamsPage, CreateTeamPage, ViewTeamPage, UpdateTeamPage,
   ListProjectsTeamsPage, CreateProjectTeamsPage, ViewProjectTeamsPage,
+  ListTeamMembersPage, CreateTeamMembersPage, SelectTeamsPage, ViewTeamMembersPage, ListContactUsPage, ViewContactPage,
 } from '../pages'
 import { PrivateLayout } from '../layout'
+import { useAuthStore } from '../../../stores'
 
 export const PrivateRoutes = () => {
+
+  const signout = useAuthStore( state => state.signout )
+  const error = useAuthStore( state => state.error )
+
+  useEffect( () => {
+    if ( error && error === 'Unauthorized' )
+      signout()
+  }, [ error ] )
+
+
   return (
     <div>
       <PrivateLayout>
@@ -29,8 +42,6 @@ export const PrivateRoutes = () => {
               <Route path="update/:id" element={ <UpdateUserPage /> } />
             </Routes>
           } />
-
-          <Route path="contact-us/*" element={ <h1> Contact Us </h1> } />
 
           <Route path="projects/*" element={ 
             <Routes>
@@ -58,7 +69,22 @@ export const PrivateRoutes = () => {
             </Routes>
           } />
 
-          <Route path="team-members/*" element={ <h1> Team Members </h1> } />
+          <Route path="team-members/*" element={
+            <Routes>
+              <Route path="/" element={ <ListTeamMembersPage /> } />
+              <Route path="/:id" element={ <ViewTeamMembersPage /> } />
+              <Route path="create" element={ <SelectTeamsPage /> } />
+              <Route path="create/:id" element={ <CreateTeamMembersPage /> } />
+              <Route path="update/*" element={ <Navigate to="/team-members" /> } />
+            </Routes>
+          } />
+
+          <Route path="contact-us/*" element={
+            <Routes>
+              <Route path="/" element={ <ListContactUsPage /> } />
+              <Route path=":id" element={ <ViewContactPage /> } />
+            </Routes>
+          } />
 
           <Route path="auth/*" element={ <Navigate to="/" /> } />
           <Route path="*" element={ <h1> Not Found </h1> } />

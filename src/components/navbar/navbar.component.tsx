@@ -9,9 +9,10 @@ interface INavbarProps {
   className?: string
   style?: React.CSSProperties
   iconClassName?: string
+  iconStyle?: React.CSSProperties
 }
 
-export const Navbar = ( { children, className = '', style, iconClassName = '' } : INavbarProps ) => {
+export const Navbar = ( { children, className = '', style, iconClassName = '', iconStyle } : INavbarProps ) => {
 
   const { isOpenMenu, toggleMenu } = useMenu()
 
@@ -29,7 +30,10 @@ export const Navbar = ( { children, className = '', style, iconClassName = '' } 
         >
           { children }
         </div>
-        <div className={ `flex p-4 text-white hover:text-[#35eaca] transition-all duration-300 ${ isOpenMenu ? 'items-start' : 'items-center' } lg:hidden ${ iconClassName }` }>
+        <div
+          className={ `flex p-4 text-white hover:text-[#35eaca] transition-all duration-300 ${ isOpenMenu ? 'items-start' : 'items-center' } lg:hidden ${ iconClassName }` }
+          style={ iconStyle }
+        >
           <BurgerIcon 
             className={ `w-6 h-6 cursor-pointer ${ !isOpenMenu ? '' : 'hidden' }` }
             onClick={ toggleMenu }

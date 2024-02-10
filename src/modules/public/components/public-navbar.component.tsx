@@ -1,59 +1,47 @@
+import { Link } from "react-router-dom"
+import { Header, LoadingPage, Navbar, NavbarBrand, NavbarContent, NavbarItem } from "../../../components"
+import { useCompaniesStore } from "../../../stores"
+import { useEffect } from "react"
 
-interface IProps {
-  isMenuOpen: boolean
-  toggleMenu: () => void
-}
+export const PublicNavbar = () => {
 
-export const PublicNavbar = ( { isMenuOpen, toggleMenu }: IProps ) => {
+  const company = useCompaniesStore( state => state.company )
+  const findFirst = useCompaniesStore( state => state.findFirst )
+  const isLoading = useCompaniesStore( state => state.isLoading )
+
+  useEffect( () => {
+    findFirst()
+  }, [] )
+
+  if ( isLoading ) return ( <LoadingPage /> )
+
   return (
-    <nav className={ `fixed w-full p-4 opacity-60 bg-white flex justify-between items-center gap-4 md:flex-row md:h-20 ${ isMenuOpen ? "flex-col" : "flex-row h-20" }` }>
-      <ul className="flex justify-center items-center h-full">
-        <li className="mx-2">
-          <a href="#home-content" className="" > Company Name </a>
-        </li>
-      </ul>
-      <ul className={ `${ isMenuOpen ? "flex flex-col gap-4" : "hidden" } md:flex md:flex-row md:gap-4` }>
-        <li className="mx-2">
-          <a href="#home-content" className="" > Home </a>
-        </li>
-        <li className="mx-2">
-          <a href="#about-content"> About </a>
-        </li>
-        <li className="mx-2">
-          <a href="#contact-content"> Contact </a>
-        </li>
-      </ul>
-      <ul className={ `${ isMenuOpen ? "flex flex-col gap-4" : "hidden" } md:flex md:flex-row md:gap-4` }>
-        <li className="mx-2">
-          <a href="/auth/signin"> Sign In </a>
-        </li>
-      </ul>
-      <div
-        id="burger-menu"
-        className={ `flex justify-center items-center ${ isMenuOpen ? "fixed top-4 right-4" : "" } md:hidden` }
-        onClick={ toggleMenu }
-      >
-        {
-          isMenuOpen
-            ? (
-              <svg className="w-8 h-8" viewBox="0 0 24 24">
-                <path
-                  fill="currentColor"
-                  d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12
-                  13.41 17.59 19 19 17.59 13.41 12z"
-                />
-              </svg>
-            )
-            : (
-              <svg className="w-8 h-8" viewBox="0 0 24 24">
-                <path
-                  fill="currentColor"
-                  d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"
-                />
-              </svg>
-            )
-        }
-      </div>
-    </nav>
+    <Header className="w-full backdrop-blur-[2.5px] bg-white/[0.04] shadow-[0_4px_30px_rgba(0,0,0,0.1)]">
+    <Navbar iconStyle={{
+        color: '#1f2937'
+      }}>
+      <NavbarBrand>
+        <NavbarItem>
+          <Link to="/" className="font-bold text-cyan-800 hover:underline transition-all duration-300"> { company?.name } </Link>
+        </NavbarItem>
+      </NavbarBrand>
+      <NavbarContent className="w-full justify-center">
+        <NavbarItem>
+          <a href="/#about" className="font-bold text-cyan-800 hover:text-[#35eaca] transition-all duration-300"> Acerca de </a>
+        </NavbarItem>
+        <NavbarItem>
+          <a href="/#projects" className="font-bold text-cyan-800 hover:text-[#35eaca]  transition-all duration-300"> Proyectos </a>
+        </NavbarItem>
+        <NavbarItem>
+          <a href="/#contact" className="font-bold text-cyan-800 hover:text-[#35eaca]  transition-all duration-300"> Contactanos </a>
+        </NavbarItem>
+      </NavbarContent>
+      <NavbarContent className="justify-end">
+        <NavbarItem>
+          <Link to="/auth/signin" className="font-bold text-cyan-800 hover:text-[#35eaca]  transition-all duration-300 py-4"> Iniciar Sesión </Link>
+        </NavbarItem>
+      </NavbarContent>
+    </Navbar>
+  </Header>
   )
 }

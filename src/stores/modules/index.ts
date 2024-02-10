@@ -1,5 +1,6 @@
 export * from './auth'
 export * from './companies'
+export * from './contact-us'
 export * from './projects'
 export * from './projects-teams'
 export * from './team-members'

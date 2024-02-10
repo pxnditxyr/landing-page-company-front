@@ -23,7 +23,7 @@ export const PrivateLayout = ( { children } : IProps ) => {
         <Navbar>
           <NavbarBrand>
             <NavbarItem>
-              <Link to="/my-company" className="font-bold text-white hover:text-[#35eaca] transition-all duration-300"> My Company </Link>
+              <Link to="/my-company" className="font-bold text-white hover:text-[#35eaca] transition-all duration-300"> Mi Empresa </Link>
             </NavbarItem>
           </NavbarBrand>
           <NavbarContent className="justify-center">

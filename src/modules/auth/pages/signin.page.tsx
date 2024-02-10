@@ -19,7 +19,7 @@ export const SigninPage = () => {
   }
 
   useEffect( () => {
-    if ( authError ) {
+    if ( authError && authError !== 'Unauthorized' ) {
       Swal.fire({
         title: 'Error',
         text: authError,

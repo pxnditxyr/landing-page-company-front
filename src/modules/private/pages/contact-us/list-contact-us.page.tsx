@@ -2,21 +2,21 @@ import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import { CrudTable } from '../../components'
-import { useProjectsTeamsStore } from '../../../../stores'
+import { useContactUsStore } from '../../../../stores'
 import Swal from 'sweetalert2'
 
-export const ListProjectsTeamsPage = () => {
+export const ListContactUsPage = () => {
 
-  const projectTeams = useProjectsTeamsStore( state => state.projectsTeam )
-  const findAllProjectsTeams = useProjectsTeamsStore( state => state.findAll )
-  const removeProject = useProjectsTeamsStore( state => state.remove )
-  const isLoadingProjectsTeams = useProjectsTeamsStore( state => state.isLoading )
-  const error = useProjectsTeamsStore( state => state.error )
-  const clearError = useProjectsTeamsStore( state => state.clearError )
+  const contactUs = useContactUsStore( state => state.contactUs )
+  const findAllContactUs = useContactUsStore( state => state.findAll )
+  const removeProject = useContactUsStore( state => state.remove )
+  const isLoadingContactUs = useContactUsStore( state => state.isLoading )
+  const error = useContactUsStore( state => state.error )
+  const clearError = useContactUsStore( state => state.clearError )
   const navigate = useNavigate()
 
   useEffect( () => {
-    findAllProjectsTeams()
+    findAllContactUs()
   }, [] )
 
   useEffect( () => {
@@ -45,8 +45,8 @@ export const ListProjectsTeamsPage = () => {
           const isRemoved = removeProject( id )
           if ( !isRemoved ) return
           Swal.fire({
-            title: 'Relación Eliminada!',
-            text: 'La relación ha sido eliminada exitosamente',
+            title: 'Contacto Eliminado',
+            text: 'El contacto ha sido eliminado con éxito',
             icon: 'success',
             confirmButtonText: 'Ok'
           })
@@ -54,38 +54,24 @@ export const ListProjectsTeamsPage = () => {
     })
   }
 
-  if ( isLoadingProjectsTeams ) return ( <h1> Loading... </h1> )
+  if ( isLoadingContactUs ) return ( <h1> Loading... </h1> )
 
   return (
     <div className="w-full flex flex-col items-center gap-8 p-2">
       <h1
         className="text-4xl font-bold text-[#092635] backdrop-blur-sm bg-white/30 rounded-lg p-2"
-      > Lista de Relaciones Proyecto - Equipo </h1>
-      <div className="w-full flex flex-col items-end lg:max-w-4xl">
-        <button
-          onClick={
-            () => navigate( '/projects-teams/create' )
-          }
-          className="px-4 py-3 bg-green-500 text-white font-bold rounded-lg hover:shadow-lg transition-all duration-300 hover:transform hover:scale-105"
-        > Crear Relación </button>
-      </div>
+      > Lista de Contactos </h1>
       <div className="overflow-x-auto p-4 grid">
         <CrudTable
-          data={ 
-            projectTeams.map( ( project ) => ({
-              ...project,
-              projectName: project.project?.name,
-              teamName: project.team?.name,
-            }) )
-          }
+          data={ contactUs }
           columns={ [
             {
-              title: 'Proyecto',
-              key: 'projectName'
+              title: 'Nombre',
+              key: 'name'
             },
             {
-              title: 'Equipo',
-              key: 'teamName'
+              title: 'Correo Electrónico',
+              key: 'email'
             },
             {
               title: 'Creado En',
@@ -107,7 +93,7 @@ export const ListProjectsTeamsPage = () => {
             delete: true
           }}
           actions={{
-            viewAction: ( id ) => navigate( `/projects-teams/${ btoa( id ) }` ),
+            viewAction: ( id ) => navigate( `/contact-us/${ btoa( id ) }` ),
             deleteAction: ( id ) => handleRemoveProject( id )
           }}
         />
