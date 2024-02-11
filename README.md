@@ -1,30 +1,76 @@
-# React + TypeScript + Vite
+# Landing Page - Company 🌟 | React  Tailwind 󱏿
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This application is a responsive landing page designed to showcase relevant information about your company, projects, team members, and users in an efficient and attractive manner. With a combination of both custom and curated designs, this application provides a visually pleasing and functional experience across various devices and screen sizes.
 
-Currently, two official plugins are available:
+<div align="center">
+    <img src="https://i.imgur.com/n17fOpy.png" width="500"/>
+    <img src="https://i.imgur.com/621InOa.jpg" width="500"/>
+    <img src="https://i.imgur.com/W5uHpn0.png" width="500"/>
+    <img src="https://i.imgur.com/BobO4aP.png" width="500"/>
+</div>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Prerequisites 📋
 
-## Expanding the ESLint configuration
+Make sure you have the following programs installed before getting started:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- [Bun 🧄](https://bun.sh/) (version 1.0.X)
 
-- Configure the top-level `parserOptions` property like this:
+Or
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+- [Node.js 🐦](https://nodejs.org/) (version 20.X.X)
+- [npm 📦](https://www.npmjs.com/) (version 10.X.X)
+
+## Installation 🛠️
+
+1. Clone the repository: 🧬
+
+```bash
+git clone https://github.com/pxnditxyr/https://github.com/pxnditxyr/landing-page-company-front
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+2. Navigate to the project directory: 📂
+
+```bash
+cd landing-page-company-front
+```
+
+3. Install dependencies:
+
+```bash
+bun i
+```
+or
+
+```bash
+npm i
+```
+
+## Configuration ⚙️
+
+1. Copy the example environment file to create you `.env` file: 🔑
+
+```bash
+cp .env.example .env
+```
+
+2. Update the `.env` file with your configuration values.
+
+
+## Usage 🚀
+
+Run the application in Development Mode: 🚀
+
+```bash
+bun dev
+```
+
+The application will be available at `http://localhost:5173` 🌐.
+
+## Technologies Used 🛠️
+
+- [React  ](https://react.dev/)
+- [Bun 🧄](https://babeljs.io/) 📜
+
+## License 📄
+
+This project is under the MIT License. Check the [LICENSE](LICENSE) file for more details. 📜
