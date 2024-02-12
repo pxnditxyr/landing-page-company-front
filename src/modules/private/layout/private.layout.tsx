@@ -28,24 +28,24 @@ export const PrivateLayout = ( { children } : IProps ) => {
           </NavbarBrand>
           <NavbarContent className="justify-center">
             <NavbarItem>
-              <Link to="/users" className="font-bold text-white hover:text-[#35eaca] transition-all duration-300"> Users </Link>
+              <Link to="/users" className="font-bold text-white hover:text-[#35eaca] transition-all duration-300"> Usuarios </Link>
             </NavbarItem>
             <NavbarItem>
-              <Link to="/projects" className="font-bold text-white hover:text-[#35eaca] transition-all duration-300"> Projects </Link>
+              <Link to="/projects" className="font-bold text-white hover:text-[#35eaca] transition-all duration-300"> Proyectos </Link>
             </NavbarItem>
             <NavbarItem>
-              <Link to="/teams" className="font-bold text-white hover:text-[#35eaca] transition-all duration-300"> Teams </Link>
+              <Link to="/teams" className="font-bold text-white hover:text-[#35eaca] transition-all duration-300"> Equipos </Link>
             </NavbarItem>
             <NavbarItem>
-              <Link to="/projects-teams" className="font-bold text-white hover:text-[#35eaca] transition-all duration-300"> Projects Teams </Link>
+              <Link to="/projects-teams" className="font-bold text-white hover:text-[#35eaca] transition-all duration-300"> Equipos de Proyectos </Link>
             </NavbarItem>
             <NavbarItem>
-              <Link to="/team-members" className="font-bold text-white hover:text-[#35eaca] transition-all duration-300"> Team Members </Link>
+              <Link to="/team-members" className="font-bold text-white hover:text-[#35eaca] transition-all duration-300"> Miembros de Equipos </Link>
             </NavbarItem>
           </NavbarContent>
           <NavbarContent className="justify-end">
             <NavbarItem>
-              <Link to="/contact-us" className="font-bold text-white hover:text-[#35eaca] transition-all duration-300"> Contact Us </Link>
+              <Link to="/contact-us" className="font-bold text-white hover:text-[#35eaca] transition-all duration-300"> Contactanos </Link>
             </NavbarItem>
             <NavbarItem>
               <button

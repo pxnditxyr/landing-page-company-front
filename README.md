@@ -25,7 +25,7 @@ Or
 1. Clone the repository: 🧬
 
 ```bash
-git clone https://github.com/pxnditxyr/https://github.com/pxnditxyr/landing-page-company-front
+git clone https://github.com/pxnditxyr/landing-page-company-front
 ```
 
 2. Navigate to the project directory: 📂
